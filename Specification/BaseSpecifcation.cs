@@ -18,11 +18,6 @@ namespace CatalogApp.Specification
         public Expression<Func<T, object>> OrderBy { get; private set; }
         public Expression<Func<T, object>> OrderByDescending { get; private set; }
 
-        protected void AddCriteria(Expression<Func<T, bool>> criteria)
-        {
-            this.Criteria = criteria;
-        }
-
         protected void AddInclude(Expression<Func<T, object>> includeExpression)
         {
             Includes.Add(includeExpression);

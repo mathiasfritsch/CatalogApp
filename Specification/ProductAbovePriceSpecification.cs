@@ -5,9 +5,8 @@ namespace CatalogApp.Specification
 {
     public class ProductAbovePriceSpecification : BaseSpecifcation<Product>
     {
-        public ProductAbovePriceSpecification(decimal minPrice)
+        public ProductAbovePriceSpecification(decimal minPrice) : base(c => c.Price > minPrice)
         {
-            base.AddCriteria(c => c.Price > minPrice);
         }
     }
 }
