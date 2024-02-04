@@ -24,7 +24,7 @@ namespace CatalogApp.Controllers
         {
             var priceGreaterThan1Specification = new ProductAbovePriceSpecification(1);
 
-            var products = _repository.FindWithSpecificationPattern(priceGreaterThan1Specification);
+            var products = await _repository.FindWithSpecificationPatternAsync(priceGreaterThan1Specification);
             return Ok(products);
         }
     }

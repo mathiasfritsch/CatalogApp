@@ -12,9 +12,11 @@ namespace CatalogApp.Repository
             _context = context;
         }
 
-        public IEnumerable<T> FindWithSpecificationPattern(ISpecification<T> specification = null)
+        public async Task<IEnumerable<T>> FindWithSpecificationPatternAsync(ISpecification<T> specification = null)
         {
-            return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), specification);
+            var query = SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), specification);
+
+            return await query.ToListAsync();
         }
 
         public async Task<List<T>> GetAllAsync()

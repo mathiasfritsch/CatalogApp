@@ -8,6 +8,6 @@ namespace CatalogApp.Repository
 
         Task<List<T>> GetAllAsync();
 
-        IEnumerable<T> FindWithSpecificationPattern(ISpecification<T> specification = null);
+        Task<IEnumerable<T>> FindWithSpecificationPatternAsync(ISpecification<T> specification = null);
     }
 }
